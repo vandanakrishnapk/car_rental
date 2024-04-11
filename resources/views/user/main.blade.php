@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+ 
   </head>
   <body class="bg-secondary"> 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -45,7 +46,7 @@
     <div class="row">
         <div class="col-3">
         </div>
-        <div class="col-4 bg-warning  mt-5 p-4 rounded">
+        <div class="col-6 bg-warning  mt-5 p-4 rounded">
           
         @yield('content')
      
@@ -60,7 +61,67 @@
 
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.20.0/dist/jquery.validate.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    if($("#user_form").length>0)
+    {
+        $('#user_form').validate(
+            {
+                rules:
+                {
+                    name :
+                    {
+                        required:true,
+                        maxlength:50,
+                    },
+                    email:
+                    {
+                        required:true,
+                        maxlength:50,
+                        email:true,
+                    },
+                    password:
+                    {
+                        required: true,
+                        minlength: 8,
+                       
+                    }
+                },
+                messages:
+                {
+                    name:
+                    {
+                        required:'name required',
+                        maxlength:'Maximum 50 characters allowed',
+                    },
+                    email:
+                    {
+                        required:'email required',
+                        maxlength:'Maximum 50 characters allowed',
+                        email:'Must be a valid email address',
+                    },
+                    password:
+                    {
+                        required:'password required',
+                        minlength:'Must be minimum 8 characters length',
+                        
+                    }
+                },
+          
+                  
+           
+            }
+          
+        );
+    }
+});
+</script>
+
+
   </body>
 </html>

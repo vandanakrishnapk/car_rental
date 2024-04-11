@@ -99,7 +99,7 @@ $check = isDateRangeAvailable($carId, $startDate, $endDate);
 
 if($check)
 {
-    echo '<script>alert("available");window.location.href="/payment"</script>';
+    echo '<script>alert("available");window.location.href="/booknow"</script>';
     
 }
 else 
